@@ -3,186 +3,474 @@
 
 <head>
     <title>Teh Biji Alpukat - Solusi Sehat untuk Diabetes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.css"
+        integrity="sha512-zdX1vpRJc7+VHCUJcExqoI7yuYbSFAbSWxscAoLF0KoUPvMSAK09BaOZ47UFdP4ABSXpevKfcD0MTVxvh0jLHQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* CSS styling for the landing page */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
-        .header {
-            background-color: #F9F9F9;
-            padding: 20px;
-            text-align: center;
+        p {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
         }
 
-        .headline {
-            font-size: 30px;
-            margin-bottom: 20px;
-            color: #333;
+        img:hover {
+            transform: scale(1.1);
         }
 
-        .subheadline {
-            font-size: 18px;
-            color: #555;
+        img {
+            transition: transform 0.2s;
+            /* Animation */
         }
 
-        .benefits {
-            background-color: #FFF;
-            padding: 50px 20px;
-            text-align: center;
+        /* Hover Blur Effect */
+        .text-white {
+            color: #fff;
         }
 
-        .benefit-item {
-            display: inline-block;
-            width: 30%;
-            margin-bottom: 30px;
-        }
-
-        .benefit-item h3 {
-            font-size: 22px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .benefit-item p {
-            font-size: 16px;
-            color: #555;
-        }
-
-        .how-to-use {
-            background-color: #F9F9F9;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .how-to-use h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .how-to-use p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .cta-button {
+        .hover-blur a {
             display: block;
-            width: 200px;
-            margin: 0 auto;
-            padding: 15px;
-            background-color: #007BFF;
-            color: #FFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hover-blur img {
+            width: 100%;
+            height: auto;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .hover-blur:hover img {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+            /* -webkit-filter: grayscale(0.6) blur(1px);
+            filter: grayscale(0.6) blur(1px); */
+        }
+
+        .hover-blur a h2 {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            height: 100%;
+            width: 100%;
+            padding: 60% 20px;
             text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.5);
+            /*background dotted*/
+            background-image: -webkit-repeating-radial-gradient(center center, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) 1px, transparent 1px, transparent 100%);
+            background-image: -moz-repeating-radial-gradient(center center, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) 1px, transparent 1px, transparent 100%);
+            background-image: -ms-repeating-radial-gradient(center center, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) 1px, transparent 1px, transparent 100%);
+            background-image: repeating-radial-gradient(center center, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) 1px, transparent 1px, transparent 100%);
+            -webkit-background-size: 3px 3px;
+            -moz-background-size: 3px 3px;
+            background-size: 3px 3px;
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            opacity: 0;
         }
 
-        .why-choose-us {
-            background-color: #FFF;
-            padding: 50px 20px;
-            text-align: center;
+        .hover-blur:hover a h2 {
+            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: alpha(opacity=100);
+            opacity: 1;
         }
 
-        .why-choose-us h2 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
+        .hover-blur .text-white {
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            -o-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0);
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+            filter: alpha(opacity=0);
+            opacity: 0;
         }
 
-        .why-choose-us p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .product-links {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .product-link {
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .product-link a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #FFF;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 4px;
-        }
-
-        .product-link a:hover {
-            background-color: #0056b3;
+        .hover-blur:hover .text-white {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            -o-transition: all 0.5s linear;
+            -ms-transition: all 0.5s linear;
+            transition: all 0.5s linear;
+            -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=1)";
+            filter: alpha(opacity=1);
+            opacity: 1;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1 class="headline">Teh Biji Alpukat - Solusi Sehat untuk Diabetes</h1>
-        <p class="subheadline">Minuman Sehat dengan Manfaat yang Luar Biasa</p>
-    </div>
 
-    <div class="benefits">
-        <h2>Mengapa Harus Memilih Teh Biji Alpukat Kami?</h2>
-        <div class="benefit-item">
-            <h3>Keaslian dan Keamanan</h3>
-            <p>Teh Biji Alpukat kami murni tanpa pengawet dan bahan kimia. Kami berkomitmen menyediakan produk
-                berkualitas tinggi yang alami dan aman untuk dikonsumsi.</p>
+    <div class="container text-center">
+        <div class="p-4 mb-4 bg-light rounded-3 border-bottom">
+            <h1 class="display-4 fw-bold mb-3 mt-5">Solusi Menurunkan Gula Darah <br> & Mencegah Diabetes</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Teh Biji Alpukat dapat mencegah diabetes secara alami tanpa ketergantungan obat.
+                    Kini diabetes dapat dihindari tanpa perlu konsumsi banyak obat-obatan
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a"
+                        class="btn btn-outline-success btn-lg px-4 me-sm-3">
+                        <img loading="lazy" src="tokopedia.png" alt="tokopedia" width="50" class="me-2">
+                        Pesan Sekarang
+                    </a>
+                    <a href="https://wa.me/6281235737300" class="btn btn-outline-success btn-lg px-4">
+                        <img loading="lazy" src="whatsapp.png" alt="whatsapp" width="40" class="me-2 my-2">
+                        Tanya Kami
+                    </a>
+                </div>
+            </div>
+            <div class="container px-5" data-aos-anchor-placement="top-center" data-aos="zoom-in">
+                <div id="semua">
+                    <img loading="lazy" src="semua.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="semua"
+                        width="600">
+                </div>
+            </div>
         </div>
-        <div class="benefit-item">
-            <h3>Uji Lab dan Sertifikat Halal</h3>
-            <p>Produk kami telah melalui uji laboratorium yang ketat untuk memastikan kualitas dan keamanannya. Kami
-                juga memiliki sertifikat halal yang menjamin bahwa Teh Biji Alpukat kami sesuai dengan standar halal.
+        <div class="p-4 rounded-3 border-bottom">
+            <div class="container-fluid py-5">
+                <div id="riset">
+                    <img loading="lazy" src="riset.jpg" alt="" class="img-fluid border rounded-3 shadow-sm mb-4"
+                        alt="riset" data-aos-anchor-placement="top-center" data-aos="flip-left">
+                </div>
+                <h1 class="display-5 fw-bold text-danger mb-4s">Tingginya Jumlah Penderita Diabetes dan Setiap Tahunnya
+                    Meningkat!</h1>
+                <div class="text-center">
+                    <p>
+                        Diabetes merupakan masalah kesehatan yang serius di Indonesia. Setiap tahun,
+                        jumlah penderita diabetes terus meningkat. Riset terbaru menunjukkan bahwa ribuan orang di
+                        Indonesia hidup dengan diabetes.
+                    </p>
+                    <p>
+                        Di tengah situasi ini, penting untuk mengambil tindakan pencegahan. Teh Biji Alpukat hadir
+                        sebagai solusi alami untuk membantu menurunkan gula darah dan mencegah risiko diabetes. Dengan
+                        nutrisi
+                        dan senyawa alami dari biji alpukat, Teh Biji Alpukat dapat membantu menjaga kadar gula darah
+                        tetap
+                        stabil dan meningkatkan kesehatan secara menyeluruh.
+                    </p>
+                    <p>
+                        Dengan Teh Biji Alpukat, Anda dapat mengambil langkah proaktif dalam menjaga kesehatan Anda dan
+                        mengurangi risiko diabetes, tanpa bergantung pada obat-obatan.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 mb-4 bg-light rounded-3 border-bottom">
+            <div class="container-fluid py-5">
+                <div class="container-fluid">
+                    <div class="row" id="hasil">
+                        <div class="col-sm-12 col-md-6">
+                            <img loading="lazy" src="hasil-diabetes-1.jpg" alt=""
+                                class="img-fluid border rounded-3 shadow-sm mb-4" alt="riset"
+                                data-aos-anchor-placement="top-center" data-aos="fade-up">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <img loading="lazy" src="hasil-diabetes-2.jpg" alt=""
+                                class="img-fluid border rounded-3 shadow-sm mb-4" alt="riset"
+                                data-aos-anchor-placement="top-center" data-aos="fade-up">
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center">
+                    Diabetes adalah kondisi kronis yang terjadi ketika kadar gula darah dalam tubuh tinggi. Kondisi
+                    ini terjadi karena tubuh tidak dapat memproduksi atau menggunakan insulin dengan efektif, hormon
+                    yang membantu mengatur kadar gula darah. Diabetes dapat memiliki dampak serius pada kesehatan
+                    jika tidak dielola dengan baik.
+                </p>
+                <div class="container">
+                    <div class="row g-3">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card bg-white p-4 bg-light rounded-3 shadow"
+                                data-aos-anchor-placement="top-center" data-aos="flip-left">
+                                <div class="card-body">
+                                    <p class="text-start">
+                                        <b>Diabetes yang tidak terkontrol dapat menyebabkan beberapa akibat serius,
+                                            antara
+                                            lain:</b>
+                                        <ul class="text-start">
+                                            <li>
+                                                Komplikasi jangka pendek seperti hipoglikemia (gula darah terlalu
+                                                rendah) dan
+                                                hiperglikemia
+                                                (gula darah terlalu tinggi), yang dapat menyebabkan kebingungan,
+                                                pingsan, bahkan
+                                                koma.
+                                            </li>
+                                            <li>
+                                                Komplikasi jangka panjang seperti kerusakan pada mata (retinopati
+                                                diabetik),
+                                                ginjal
+                                                (nefropati
+                                                diabetik), saraf (neuropati diabetik), dan penyakit jantung.
+                                            </li>
+                                            <li>
+                                                Gangguan sirkulasi yang dapat menyebabkan masalah pada pembuluh darah,
+                                                termasuk
+                                                risiko
+                                                amputasi
+                                                pada ekstremitas.
+                                            </li>
+                                            <li>
+                                                Masalah pada sistem pencernaan, seperti gastroparesis (kelambatan
+                                                pengosongan
+                                                lambung)
+                                                dan
+                                                gangguan pada gigi dan gusi.
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card p-4 bg-white rounded-3 shadow h-100" data-aos-anchor-placement="top-center"
+                                data-aos="flip-right">
+                                <div class="card-body">
+                                    <p class="text-start">
+                                        <b>Beberapa ciri-ciri / gejala umum diabetes antara lain:</b>
+                                        <ul class="text-start">
+                                            <li>Sering merasa haus dan sering buang air kecil.</li>
+                                            <li>Merasa sangat lapar meskipun sudah makan.</li>
+                                            <li>Penurunan berat badan yang tidak dijelaskan.</li>
+                                            <li>Kelelahan yang berlebihan.</li>
+                                            <li>Luka yang sulit sembuh.</li>
+                                            <li>Infeksi yang sering terjadi, terutama infeksi kulit dan saluran kemih.
+                                            </li>
+                                        </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 rounded-3 border-bottom">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold text-dark mb-4">Maka kami menghadirkan <b class="text-success">Teh Biji
+                        Alpukat</b> sebagai solusi untuk mencegah Diabetes!</h1>
+                <div id="semua-2">
+                    <img loading="lazy" src="semua-2.jpg" alt=""
+                        class="border rounded-3 shadow-sm mb-4 object-fit-cover" alt="semua-2" height="550" width="700"
+                        data-aos="zoom-in" data-aos-anchor-placement="top-center">
+
+                </div>
+                <div class="text-center">
+                    <p>
+                        Teh Biji Alpukat merupakan minuman herbal alami yang dihasilkan dari biji alpukat berkualitas
+                        tinggi. Dibuat dengan proses yang teliti dan diproses secara higienis, Teh Biji Alpukat
+                        memberikan manfaat kesehatan yang luar biasa.
+                    </p>
+                    <p class="text-center fw-bold h4">Khasiat dan Manfaat Teh Biji Alpukat Ada Banyak Lho!</p>
+                    <ul class="text-start">
+                        <li><strong>Mengontrol Diabetes Secara Alami:</strong> Teh Biji Alpukat dapat membantu menjaga
+                            kadar gula darah tetap stabil dan mencegah lonjakan yang berlebihan, sehingga bermanfaat
+                            bagi penderita diabetes.</li>
+                        <li><strong>Menjaga Kesehatan Jantung:</strong> Kandungan lemak sehat dalam Teh Biji Alpukat
+                            membantu menjaga kesehatan jantung dan mengurangi risiko penyakit kardiovaskular.</li>
+                        <li><strong>Meningkatkan Sistem Kekebalan Tubuh:</strong> Dengan kandungan antioksidan, Teh Biji
+                            Alpukat dapat membantu meningkatkan sistem kekebalan tubuh, melindungi tubuh dari berbagai
+                            penyakit.</li>
+                        <li><strong>Melancarkan Pencernaan:</strong> Serat yang tinggi dalam Teh Biji Alpukat membantu
+                            meningkatkan fungsi pencernaan, mencegah sembelit, dan menjaga kesehatan saluran pencernaan.
+                        </li>
+                        <li><strong>Sumber Nutrisi yang Kaya:</strong> Teh Biji Alpukat mengandung vitamin E, kalium,
+                            dan serat yang penting untuk menjaga kesehatan tubuh secara keseluruhan.</li>
+                        <li><strong>Bebas Pengawet dan Bahan Kimia:</strong> Teh Biji Alpukat kami diproduksi secara
+                            alami tanpa pengawet dan bahan kimia tambahan, sehingga memberikan kualitas terbaik bagi
+                            kesehatan Anda.</li>
+                    </ul>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <video controls>
+                            <source src="video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="col">
+                        <video controls>
+                            <source src="video2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 mb-4 bg-light rounded-3 border-bottom">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold text-dark mb-4 border-bottom pb-3">Kenapa Teh Biji Alpukat Kami Istimewa?
+                </h1>
+                <div class="row g-4 pt-4 row-cols-1 row-cols-lg-3" id="istimewa">
+                    <div class="col" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                        <img loading="lazy" src="nutrition.jpg" alt="nutrisi"
+                            class="w-100 rounded-3 shadow-sm mb-4 object-fit-cover" alt="riset" height="300">
+                        <h2>Kandungan Nutrisi Tinggi</h2>
+                        <p>Teh Biji Alpukat kami kaya akan nutrisi penting seperti serat, lemak sehat, vitamin E,
+                            kalium, dan antioksidan.</p>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                        <img loading="lazy" src="diabetes.jpg" alt="diabetes"
+                            class="w-100 border rounded-3 shadow-sm mb-4 object-fit-cover" alt="riset" height="300">
+                        <h2>Kontrol Diabetes Secara Alami</h2>
+                        <p>Teh Biji Alpukat dapat membantu menjaga kadar gula darah tetap stabil, mencegah lonjakan yang
+                            berlebihan, dan membantu mengontrol diabetes.</p>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-anchor-placement="top-center">
+                        <img loading="lazy" src="halal.png" alt="halal"
+                            class=" w-100border rounded-3 shadow-sm mb-4 object-fit-cover" alt="riset" height="300">
+                        <h2>Sertifikasi dan Keamanan</h2>
+                        <p>Teh Biji Alpukat kami telah melalui uji laboratorium, memiliki sertifikat halal, dan ijin
+                            edar dari Kementerian Pertanian. Kami berkomitmen untuk memberikan produk yang aman dan
+                            berkualitas tinggi kepada pelanggan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 rounded-3 border-bottom">
+            <div class="container-fluid py-5" data-aos="flip-left" data-aos-anchor-placement="top-center" id="penyajian">
+                <img loading="lazy" src="cara-penyajian.jpg" alt="" class="img-fluid rounded-3 shadow-sm mb-4"
+                    alt="cara-penyajian">
+            </div>
+        </div>
+        <div class="p-4 mb-4 bg-light rounded-3 border-bottom">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold text-dark mb-4 border-bottom pb-3">Kami Hadir dengan 3 Variasi
+                </h1>
+                <div class="row g-4 pt-4 row-cols-1 row-cols-lg-3">
+                    <div class="col" data-aos="flip-up" data-aos-anchor-placement="top-center">
+                        <div class="hover-blur">
+                            <a target="_blank"
+                                href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-75-gram">
+                                <img loading="lazy" src="75gr.jpg" alt="75gr"
+                                    class="w-100 rounded-3 shadow-sm object-fit-cover" alt="riset" height="500">
+                                <h2><span class="text-white">75gr</span></h2>
+                            </a>
+                        </div>
+                        <a target="_blank" class=" mt-2 btn btn-outline-success w-100 fw-bold"
+                            href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-75-gram">
+                            <img loading="lazy" src="tokopedia.png" alt="tokopedia" width="50" class="me-2">
+                            Pesan Teh Biji Alpukat 75gr
+                        </a>
+                    </div>
+                    <div class="col" data-aos="flip-up" data-aos-anchor-placement="top-center">
+                        <div class="hover-blur">
+                            <a target="_blank"
+                                href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-140-gram">
+                                <img loading="lazy" src="140gr.jpg" alt="140gr"
+                                    class="w-100 rounded-3 shadow-sm object-fit-cover" alt="riset" height="500">
+                                <h2><span class="text-white">140gr</span></h2>
+                            </a>
+                        </div>
+                        <a target="_blank" class=" mt-2 btn btn-outline-success w-100 fw-bold"
+                            href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-140-gram">
+                            <img loading="lazy" src="tokopedia.png" alt="tokopedia" width="50" class="me-2">
+                            Pesan Teh Biji Alpukat 140gr
+                        </a>
+                    </div>
+                    <div class="col" data-aos="flip-up" data-aos-anchor-placement="top-center">
+                        <div class="hover-blur">
+                            <a target="_blank"
+                                href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-185-gram">
+                                <img loading="lazy" src="185gr.jpg" alt="185gr"
+                                    class="w-100 rounded-3 shadow-sm object-fit-cover" alt="riset" height="500">
+                                <h2><span class="text-white">185gr</span></h2>
+                            </a>
+                        </div>
+                        <a target="_blank" class=" mt-2 btn btn-outline-success w-100 fw-bold"
+                            href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-185-gram">
+                            <img loading="lazy" src="tokopedia.png" alt="tokopedia" width="50" class="me-2">
+                            Pesan Teh Biji Alpukat 185gr
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 rounded-3 border-bottom">
+            <a href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a" class="mt-3 ms-4">
+                <img loading="lazy" src="beli.gif" class="img-fluid" alt="beli" width="700">
+            </a>
+            <p class="text-secondary">*) klik tombol diatas untuk melakukan pembelian</p>
+            <h2 class="fw-bold text-danger mt-5"><s>Rp. 130.000</s></h2>
+            <h1 class="display-5 fw-bold mb-5 text-success">Rp. 116.000</h1>
+            <h1 class="fw-light p-3 text-white" style="background-color: red;">Berlaku terbatas! <br><b
+                    class="fw-bold">Promo Spesial</b> <br> Khusus untuk Anda saat ini juga!</h1>
+            <div class="mt-3">
+                <img loading="lazy" src="jangan.gif" class="img-fluid" alt="jangan" width="500">
+            </div>
+            <div class="my-3">
+                <img loading="lazy" src="arrow.gif" class="img-fluid" alt="arrow" width="300">
+            </div>
+            <a href="https://wa.me/6281235737300" class="mt-5">
+                <img loading="lazy" src="chat.gif" alt="whatsapp" width="400">
+            </a>
+            <p>
+                *) Mohon tunggu 2-3 sampai detik untuk terhubung ke WA kami.
+                <br>
+                <b>*) Jika ada kendala saat klik tombol, anda bisa mengulangi lagi dengan klik tombol diatas kembali.
+                </b>
             </p>
+            <img loading="lazy" src="belanja.jpg" width="1000" class="my-3" alt="belanja-aman-di-tokopedia" ">
         </div>
-        <div class="benefit-item">
-            <h3>Ijin Edar dari Kementerian Pertanian</h3>
-            <p>Kami telah memperoleh ijin edar resmi dari Kementerian Pertanian, sehingga kamu dapat yakin bahwa produk
-                kami memenuhi persyaratan dan regulasi yang berlaku.</p>
+        <footer class=" pb-3 bg-light">
+            <img loading="lazy" src="keys.png" alt="keys" class="mt-4 mb-3" width="200">
+            <h2>Key's Store</h2>
+            <h3 class="fw-normal">PT. Karya Buah Tropis</h3>
+            <p>
+                <strong>WA:</strong> +62 812-3573-7300<br>
+                <strong>Alamat:</strong> Jalan Lebak Indah Asri 2 34, Gading, Tambaksari, <br>Surabaya, Jawa Timur 60134
+            </p>
+            <p class="small border-top pt-3">©2023 Key's Store</p>
+            </footer>
         </div>
-    </div>
 
-    <div class="how-to-use">
-        <h2>Cara Penggunaan Teh Biji Alpukat</h2>
-        <p>Cara penggunaannya sederhana:</p>
-        <p>Ambil 1 sdm Teh Biji Alpukat, seduh dalam 1 gelas air panas, diamkan selama 5 menit, kemudian siap diminum
-            1-2 kali sehari.</p>
-        <a href="#product-links" class="cta-button">Pesan Sekarang</a>
-    </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.3/viewer.min.js"
+            integrity="sha512-f8kZwYACKF8unHuRV7j/5ILZfflRncxHp1f6y/PKuuRpCVgpORNZMne1jrghNzTVlXabUXIg1iJ5PvhuAaau6Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script></script>
+        <script>
+            AOS.init();
 
-    <div class="why-choose-us">
-        <h2>Mengapa Harus Membeli Teh Biji Alpukat Kami?</h2>
-        <p>Teh Biji Alpukat kami hadir sebagai solusi sehat bagi jutaan orang Indonesia yang mengidap diabetes. Dengan
-            manfaat luar biasanya, Teh Biji Alpukat kami dapat membantu mengendalikan kadar gula darah dan meningkatkan
-            kesehatan secara alami.</p>
-        <div class="product-links" id="product-links">
-            <div class="product-link">
-                <a href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-75-gram">Teh Biji
-                    Alpukat 75gr - Rp 56.000</a>
-            </div>
-            <div class="product-link">
-                <a href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-140-gram">Teh Biji
-                    Alpukat 140gr - Rp 87.000</a>
-            </div>
-            <div class="product-link">
-                <a href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a-185-gram">Teh Biji
-                    Alpukat 185gr - Rp 116.000</a>
-            </div>
-        </div>
-        <p>Atau, jika kamu ingin melihat semua variasi produk kami dalam satu halaman, kunjungi: <a
-                href="https://www.tokopedia.com/keys-store-official/teh-biji-alpukat-grade-a">Teh Biji Alpukat Grade
-                A</a></p>
-    </div>
+            new Viewer(document.getElementById('semua'));
+            new Viewer(document.getElementById('riset'));
+            new Viewer(document.getElementById('hasil'));
+            new Viewer(document.getElementById('semua-2'));
+            new Viewer(document.getElementById('istimewa'));
+            new Viewer(document.getElementById('penyajian'));
+        </script>
 </body>
 
 </html>
